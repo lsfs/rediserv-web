@@ -1,0 +1,114 @@
+/* ###########################################################
+                            LOGIN PAGE
+#############################################################*/
+
+
+
+
+.left {
+    background-color: #ffffff;
+    border-right: 1px solid #002776;
+    border-radius: 7px 0 0 7px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 9px 26px 0 rgba(0, 0, 0, 0.15);
+
+
+}
+
+.left h5 {
+    margin-top: 10%;
+    text-align: center;
+    color: #191919;
+}
+
+
+
+.right {
+    background: #002776;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0 7px 7px 0;
+   scrollbar-width: none;
+   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.15), 0 9px 26px 0 rgba(0, 0, 0, 0.15);
+   color:#ffffff;
+
+}
+
+.right::-webkit-overflow-scrolling {
+    display: none;
+}
+
+
+.right h5 {
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 10%;
+    color: #fff;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+
+}
+
+.slide>div:target {
+    transform: scale(0.8);
+}
+
+form {
+    padding: 10%;
+}
+
+form submit {
+    padding: 10%;
+}
+
+.btnSubmit {
+    width: 30%;
+    margin-top: 2%;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+
+.right a.ForgetPwd {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.right a.ForgetPwd:hover {
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.right .btnSubmit {
+    font-weight: normal;
+    color: #191919;
+    background-color: #fff;
+}
+
+.right .btnSubmit:hover {
+    font-weight: 600;
+    color: #fff;
+    background-color: #009C37;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.right .ForgetPwd {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.linha2 {
+    height: 2%;
+    background-color: #009c37;
+}
+
+.linha1 {
+    height: 2%;
+    background-color: #FEDF00;
+}
+

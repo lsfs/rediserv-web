@@ -1,0 +1,65 @@
+<app-shared-login>
+                        <div class="slide">
+                            <h5>Faça seu cadastro</h5>
+                            <form>
+                                <div *ngIf="enviadoRecu" class="mt-2 alert alert-danger">
+                                    <div *ngIf="dadosIncorretos">
+                                        Os dados inseridos estão incorretos
+                                    </div>
+                                    <div *ngIf="dadosIncorretos">
+                                        O campo usuário é necessário
+                                    </div>
+                                    <div *ngIf="dadosIncorretos">
+                                        O campo senha é necessário
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Insira seu e-mail *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="cars">Selecione sua área</label>
+
+                                    <select class="form-control" name="cars" id="cars">
+                                      <option value="volvo">Volvo</option>
+                                      <option value="saab">Saab</option>
+                                      <option value="mercedes">Mercedes</option>
+                                      <option value="audi">Audi</option>
+                                    </select>
+                                    <label for="cars">Selecione seu cargo:</label>
+
+                                    <select class="form-control" name="cars" id="cars">
+                                        <option value="volvo">Volvo</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cars">Selecione seu cargo:</label>
+
+                                    <select class="form-control" name="cars" id="cars">
+                                        <option value="volvo">Volvo</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Insira sua senha *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control"
+                                        placeholder="Insira sua senha novamente *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btnSubmit" value="Entrar" />
+                                </div>
+                                <div class="form-group">
+                                    <a href="#" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>
+                                </div>
+                            </form>
+                        </div>
+</app-shared-login>

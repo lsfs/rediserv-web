@@ -1,0 +1,81 @@
+<app-shared-login>
+
+                    <div class="col-md-6 left">
+                        <div class="container container-left">
+                            <h5>Sistema de redistribuição de Servidores</h5>
+                        </div>
+                    </div>
+
+                    <!-- ================================================
+                        LADO DIREITO
+                    =====================================================
+                    -->
+                    <div class="col-md-6 right">
+                        <div class="slide">
+                            <h5>Realize seu login</h5>
+                            <form>
+                                <div *ngIf="enviadoMain" class="mt-2 alert alert-danger">
+                                    <div *ngIf="dadosIncorretos">
+                                        Os dados inseridos estão incorretos
+                                    </div>
+                                    <div *ngIf="dadosIncorretos">
+                                        O campo usuário é necessário
+                                    </div>
+                                    <div *ngIf="dadosIncorretos">
+                                        O campo senha é necessário
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Usuário *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Senha *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btnSubmit" value="Entrar" />
+                                </div>
+                                <div class="form-group">
+                                    <a routerLink="../recuperar" class="ForgetPwd" value="Login">Não consegue entrar?</a>
+                                </div>
+                                <div class="form-group">
+                                    <a routerLink="../cadastrar" class="ForgetPwd" value="Login">Ainda não tem conta? Faça seu
+                                        cadastro</a>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+
+                        <!-- ================================================
+                       SLIDE 3
+                    =====================================================-->
+<!--                        <div class="slide">-->
+<!--                            <h5>Realize seu login</h5>-->
+<!--                            <form>-->
+<!--                                <div *ngIf="enviadoNovo" class="mt-2 alert alert-danger">-->
+<!--                                    <div *ngIf="dadosIncorretos">-->
+<!--                                        Os dados inseridos estão incorretos-->
+<!--                                    </div>-->
+<!--                                    <div *ngIf="dadosIncorretos">-->
+<!--                                        O campo usuário é necessário-->
+<!--                                    </div>-->
+<!--                                    <div *ngIf="dadosIncorretos">-->
+<!--                                        O campo senha é necessário-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input type="text" class="form-control" placeholder="Email *" value="" />-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <input type="submit" class="btnSubmit" value="Entrar" />-->
+<!--                                </div>-->
+<!--                                <div class="form-group">-->
+<!--                                    <a href="#" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+
+                    </div>
+
+</app-shared-login>
