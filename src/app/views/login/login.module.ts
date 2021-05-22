@@ -5,6 +5,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { RecuperarSenhaComponent } from './recuperar-senha';
 import { CadastrarComponent } from './cadastrar';
 import { SharedComponent } from './shared/shared.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import { SharedComponent } from './shared/shared.component';
   imports: [
     CommonModule,
     LoginRoutingModule,
-
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }

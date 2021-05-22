@@ -23,7 +23,7 @@
 
 
 .right {
-    background: #002776;
+    background: #303F9F;
     display: flex;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -70,6 +70,7 @@ form submit {
     padding: 1.5%;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .right a.ForgetPwd {
@@ -112,3 +113,9 @@ form submit {
     background-color: #FEDF00;
 }
 
+
+
+.form-container {
+    margin-top: 15%;
+  }
+  

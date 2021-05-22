@@ -1,65 +1,84 @@
 <app-shared-login>
-                        <div class="slide">
-                            <h5>Faça seu cadastro</h5>
-                            <form>
-                                <div *ngIf="enviadoRecu" class="mt-2 alert alert-danger">
-                                    <div *ngIf="dadosIncorretos">
-                                        Os dados inseridos estão incorretos
-                                    </div>
-                                    <div *ngIf="dadosIncorretos">
-                                        O campo usuário é necessário
-                                    </div>
-                                    <div *ngIf="dadosIncorretos">
-                                        O campo senha é necessário
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Insira seu e-mail *"
-                                        value="" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="cars">Selecione sua área</label>
+  <div class="col-md-6 cadastro">
+    <div class="slide">
+      <div class="slide-header">
+        <h5>Realize seu cadastro no Rediserv</h5>
 
-                                    <select class="form-control" name="cars" id="cars">
-                                      <option value="volvo">Volvo</option>
-                                      <option value="saab">Saab</option>
-                                      <option value="mercedes">Mercedes</option>
-                                      <option value="audi">Audi</option>
-                                    </select>
-                                    <label for="cars">Selecione seu cargo:</label>
+      </div>
+      <div class="slide-body">
+        <form [formGroup]="form">
+          <div *ngIf="enviadoRecu" class="mt-2 alert alert-danger">
+            <div *ngIf="dadosIncorretos">
+              Os dados inseridos estão incorretos
+            </div>
+            <div *ngIf="dadosIncorretos">
+              O campo usuário é necessário
+            </div>
+            <div *ngIf="dadosIncorretos">
+              O campo senha é necessário
+            </div>
+          </div>
+          <div class="form-group">
+            <input formControlName="email" type="text" class="form-control form-input" placeholder="Informe seu e-mail" />
+          </div>
+          <div class="form-group">
+            <select formControlName="area" class="form-control form-select" name="area" id="area"
+              (change)="selectAreaOnChange($event)" required>
+              <option value="" disabled selected>Selecione sua área</option>
+              <option *ngFor="let area of areas" [value]="area.id">
+                {{area.nome}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select formControlName="cargo" class="form-control form-select" id="cargo">
+              <option  value="" disabled selected>Selecione seu cargo</option>
+              <option *ngFor="let cargo of cargos" [value]="cargo.id">
+                {{cargo.nome}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
 
-                                    <select class="form-control" name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="mercedes">Mercedes</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="cars">Selecione seu cargo:</label>
+            <select formControlName="estado" class="form-control" name="cars" id="cars">
+              <option  value="" disabled selected>Selecione seu estado</option>
+              <option *ngFor="let estado of estados" [value]="estado.id">
+                {{estado.nome}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
 
-                                    <select class="form-control" name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="mercedes">Mercedes</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                                </div>
+            <select formControlName="instituicao" class="form-control" name="cars" id="cars">
+              <option  value="" disabled selected>Selecione sua instituição</option>
+              <option *ngFor="let estado of estados" [value]="estado.id">
+                {{estado.nome}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select formControlName="unidade" class="form-control" name="cars" id="cars">
+              <option  value="" disabled selected>Selecione sua unidade</option>
+              <option *ngFor="let estado of estados" [value]="estado.id">
+                {{estado.nome}}
+              </option>
+            </select>
+          </div>
 
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Insira sua senha *"
-                                        value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"
-                                        placeholder="Insira sua senha novamente *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" class="btnSubmit" value="Entrar" />
-                                </div>
-                                <div class="form-group">
-                                    <a href="#" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>
-                                </div>
-                            </form>
-                        </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Digite uma senha *" value="" />
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Insira a senha novamente *" value="" />
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btnSubmit" value="Cadastrar" />
+          </div>
+          <div class="form-group">
+            <a routerLink="../entrar" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </app-shared-login>

@@ -1,0 +1,37 @@
+.bg-indigo{
+    background-color: #303F9F;
+}
+
+.str1 {
+    stroke: #fff;
+    stroke-width: 280
+}
+
+#svg-map a path {
+    fill: #b6b6b6;
+}
+
+#svg-map text {
+    fill: #fff;
+    font: 12px Arial-BoldMT, sans-serif;
+    cursor: pointer
+}
+
+#svg-map a {
+    font-weight: bold;
+}
+
+
+#svg-map a:hover {
+    cursor: pointer;
+    text-decoration: none
+}
+
+#svg-map a:hover path {
+    fill: #28a745 !important
+}
+
+.titulo-dados-proposta{
+    color:#303F9F;
+    font-weight: 500;
+}

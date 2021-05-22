@@ -1,1 +1,24 @@
-<p>recuperar-senha works!</p>
+<app-shared-login>
+  <div class="col-md-6 cadastro">
+    <div class="slide">
+      <div class="slide-header">
+        <h5>Recupere seu acesso</h5>
+      </div>
+      <div class="slide-body">
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Insira seu e-mail cadastrado"
+                   value=""/>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btnSubmit" value="Entrar"/>
+          </div>
+          <div class="form-group">
+            <a routerLink="../entrar" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-shared-login>
