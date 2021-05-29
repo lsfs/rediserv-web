@@ -35,3 +35,10 @@
     color:#303F9F;
     font-weight: 500;
 }
+
+.lugarSelecionado{
+    fill: #28a745 !important
+}
+.cursor-pointer{
+  cursor: pointer;
+}
