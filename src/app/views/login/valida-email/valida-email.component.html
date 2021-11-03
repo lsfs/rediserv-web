@@ -1,0 +1,28 @@
+<app-shared-login>
+  <div class="col-md-6 cadastro">
+    <div class="slide">
+      <div class="slide-body">
+        <form>
+          <div class="row">
+            <div class="col text-center">
+
+              <div *ngIf="haErros; else sucessoConfirmacao" class="pt-2">
+
+                <p class="mt-3"> Não foi possível realizar a confirmação. <br> Verifique o token fornecido. </p>
+              </div>
+
+              <ng-template #sucessoConfirmacao>
+
+                  <p class="mt-3">Seu email foi confirmado e sua conta já está ativa.</p>
+
+              </ng-template>
+
+              <button class="btn text-light bg-indigo mt-3" routerLink="../../entrar">{{conteudoBotao}}</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-shared-login>

@@ -1,81 +1,79 @@
 <app-shared-login>
 
-                    <div class="col-md-6 left">
-                        <div class="container container-left">
-                            <h5>Sistema de redistribuição de Servidores</h5>
-                        </div>
-                    </div>
+  <div class="col-md-6 left">
+    <div class="container container-left">
+      <h4>Sistema de Redistribuição de Servidores</h4>
+      <p class="mt-5 px-2 py-3 text-justify">
+        O Rediserv é um sistema criado para auxiliar servidores da rede federal de ensino
+        a realizarem o processo de redistribuição através da criação de propostas e interação com outros usuários.
+      </p>
+    </div>
+  </div>
 
-                    <!-- ================================================
-                        LADO DIREITO
-                    =====================================================
-                    -->
-                    <div class="col-md-6 right">
-                        <div class="slide">
-                            <h5>Realize seu login</h5>
-                            <form>
-                                <div *ngIf="enviadoMain" class="mt-2 alert alert-danger">
-                                    <div *ngIf="dadosIncorretos">
-                                        Os dados inseridos estão incorretos
-                                    </div>
-                                    <div *ngIf="dadosIncorretos">
-                                        O campo usuário é necessário
-                                    </div>
-                                    <div *ngIf="dadosIncorretos">
-                                        O campo senha é necessário
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Usuário *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Senha *" value="" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" class="btnSubmit" value="Entrar" />
-                                </div>
-                                <div class="form-group">
-                                    <a routerLink="../recuperar" class="ForgetPwd" value="Login">Não consegue entrar?</a>
-                                </div>
-                                <div class="form-group">
-                                    <a routerLink="../cadastrar" class="ForgetPwd" value="Login">Ainda não tem conta? Faça seu
-                                        cadastro</a>
-                                </div>
-                            </form>
-                        </div>
+  <!-- ================================================
+      LADO DIREITO
+  =====================================================
+  -->
+  <div class="col-md-6 right">
+    <div class="slide">
+      <h5>Realize seu login</h5>
+      <form [formGroup]="formLogin">
+
+        <div *ngIf="erroLogin" class="alert alert-danger alert-dismissible mt-3 fade show text-center"
+             role="alert">
+
+          {{mensagemErro}}
+          <button type="button" class="close" (click)="resetaErro()" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="E-mail *" formControlName="email" value=""/>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Senha *" formControlName="senha" value=""/>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btnSubmit" value="Entrar" (click)="realizaLogin()"/>
+        </div>
+        <div class="form-group">
+          <a routerLink="../recuperar" class="ForgetPwd" value="Login">Não consegue entrar?</a>
+        </div>
+        <div class="form-group">
+          <a routerLink="../cadastrar" class="ForgetPwd" value="Login">Ainda não tem conta? Faça seu
+            cadastro</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <ng-template #boasvindas>
+
+
+    <div class="modal-body">
+
+      <div class="row">
+        <div class="col-12 px-4">
 
 
 
+          <h5 class="text-center"> Atenção</h5>
+          <p class="px-2">Este site armazena algumas informações sobre você e ao acessá-lo, você concorda com isso.</p>
+          <p class="px-2">Você pode excluir todos os seus dados a qualquer momento, bastando para isso acessar a página
+          <span class="text-primary">Meus dados</span>.</p>
+          <button class="btn text-light sombra border-0 p-2 bg-indigo mt-3" (click)="fecharModal()"> Estou ciente </button>
 
-                        <!-- ================================================
-                       SLIDE 3
-                    =====================================================-->
-<!--                        <div class="slide">-->
-<!--                            <h5>Realize seu login</h5>-->
-<!--                            <form>-->
-<!--                                <div *ngIf="enviadoNovo" class="mt-2 alert alert-danger">-->
-<!--                                    <div *ngIf="dadosIncorretos">-->
-<!--                                        Os dados inseridos estão incorretos-->
-<!--                                    </div>-->
-<!--                                    <div *ngIf="dadosIncorretos">-->
-<!--                                        O campo usuário é necessário-->
-<!--                                    </div>-->
-<!--                                    <div *ngIf="dadosIncorretos">-->
-<!--                                        O campo senha é necessário-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <input type="text" class="form-control" placeholder="Email *" value="" />-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <input type="submit" class="btnSubmit" value="Entrar" />-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <a href="#" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>-->
-<!--                                </div>-->
-<!--                            </form>-->
-<!--                        </div>-->
 
-                    </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </ng-template>
+
+
 
 </app-shared-login>

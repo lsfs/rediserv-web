@@ -5,15 +5,38 @@
         <h5>Recupere seu acesso</h5>
       </div>
       <div class="slide-body">
-        <form>
+
+        <form [formGroup]="formReset">
+
+          <div *ngIf="sucesso === true">
+            <div class="alert alert-success alert-dismissible mt-3 fade show text-center">
+              Enviamos as instruções para redefinir sua senha no seu e-mail.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+
+          <div *ngIf="sucesso === false">
+            <div class="alert alert-danger alert-dismissible mt-3 fade show text-center">
+              Não foi possível atender sua solicitação. Verifique seus dados.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+
+
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Insira seu e-mail cadastrado"
-                   value=""/>
+            <input type="email" class="form-control" formControlName="email" placeholder="Insira seu e-mail cadastrado"
+                   value="" required/>
           </div>
 
           <div class="form-group">
-            <input type="submit" class="btnSubmit" value="Entrar"/>
+            <input type="submit" class="btnSubmit" value="Confirmar" [disabled]="formReset.invalid"
+                   (click)="solicitaResetSenha()"/>
           </div>
+
           <div class="form-group">
             <a routerLink="../entrar" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>
           </div>

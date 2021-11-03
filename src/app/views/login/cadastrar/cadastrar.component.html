@@ -1,5 +1,5 @@
 <app-shared-login>
-  <div class="col-md-6 cadastro">
+  <div class="col-md-10 cadastro">
     <div class="slide">
       <div class="slide-header">
         <h5>Realize seu cadastro no Rediserv</h5>
@@ -7,7 +7,9 @@
       </div>
       <div class="slide-body">
         <form [formGroup]="form">
-          <div *ngIf="enviadoRecu" class="mt-2 alert alert-danger">
+
+
+          <div *ngIf="enviadoRecu" class="alert alert-danger">
             <div *ngIf="dadosIncorretos">
               Os dados inseridos estão incorretos
             </div>
@@ -17,66 +19,151 @@
             <div *ngIf="dadosIncorretos">
               O campo senha é necessário
             </div>
-          </div>
-          <div class="form-group">
-            <input formControlName="email" type="text" class="form-control form-input" placeholder="Informe seu e-mail" />
-          </div>
-          <div class="form-group">
-            <select formControlName="area" class="form-control form-select" name="area" id="area"
-              (change)="selectAreaOnChange($event)" required>
-              <option value="" disabled selected>Selecione sua área</option>
-              <option *ngFor="let area of areas" [value]="area.id">
-                {{area.nome}}
-              </option>
-            </select>
-          </div>
-          <div class="form-group">
-            <select formControlName="cargo" class="form-control form-select" id="cargo">
-              <option  value="" disabled selected>Selecione seu cargo</option>
-              <option *ngFor="let cargo of cargos" [value]="cargo.id">
-                {{cargo.nome}}
-              </option>
-            </select>
-          </div>
-          <div class="form-group">
-
-            <select formControlName="estado" class="form-control" name="cars" id="cars">
-              <option  value="" disabled selected>Selecione seu estado</option>
-              <option *ngFor="let estado of estados" [value]="estado.id">
-                {{estado.nome}}
-              </option>
-            </select>
-          </div>
-          <div class="form-group">
-
-            <select formControlName="instituicao" class="form-control" name="cars" id="cars">
-              <option  value="" disabled selected>Selecione sua instituição</option>
-              <option *ngFor="let estado of estados" [value]="estado.id">
-                {{estado.nome}}
-              </option>
-            </select>
-          </div>
-          <div class="form-group">
-            <select formControlName="unidade" class="form-control" name="cars" id="cars">
-              <option  value="" disabled selected>Selecione sua unidade</option>
-              <option *ngFor="let estado of estados" [value]="estado.id">
-                {{estado.nome}}
-              </option>
-            </select>
+            <div *ngIf="erroCadastro">
+              Erro no cadastro. Verifique seus dados.
+            </div>
           </div>
 
-          <div class="form-group">
-            <input type="password" class="form-control" placeholder="Digite uma senha *" value="" />
+          <div class="row">
+
+            <div class="mb-2 col-12">
+              <label for="nome">
+                Insira suas informaçoes pessoais
+              </label>
+            </div>
+            <div class="col-6 form-group">
+              <input id="nome" formControlName="nome" type="text" class="form-control form-input"
+                     placeholder="Informe seu nome"/>
+            </div>
+
+            <div class="col-6 form-group">
+              <input formControlName="email" type="text" class="form-control form-input"
+                     placeholder="Informe seu e-mail"/>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="password" class="form-control" placeholder="Insira a senha novamente *" value="" />
+          <div class="row">
+
+            <div class="mb-2 col-12">
+              <label for="nome">
+                Insira seus dados profissionais
+              </label>
+            </div>
+
+            <div class="col-6">
+
+              <div class="form-group">
+                <select formControlName="cargo" class="form-control form-select" name="area" id="cargo"
+                        (change)="selectCargoOnChange($event)" required>
+                  <option value="" disabled selected>Selecione seu cargo</option>
+                  <option *ngFor="let cargo of cargos" [value]="cargo.nome">
+                    {{cargo.nome}}
+                  </option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="col-12" *ngIf="cargoProfessor">
+
+              <div class="form-group">
+
+                <label for="area">Insira a sua área</label>
+                <input formControlName="area" class="form-control form-select" name="area" id="area"
+                       required>
+
+
+              </div>
+
+            </div>
+
           </div>
+          <div class="row" *ngIf="cargoTecnico" >
+
+            <div class="col-6">
+              <div class="form-group">
+                <select formControlName="nivel" class="form-control form-select" id="nivel"
+                        (change)="selectNivelOnChange($event)">
+                  <option value="" selected>Selecione seu nível</option>
+                  <option *ngFor="let nivel of niveis" [value]="nivel.id">
+                    {{nivel.descricao}}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <select formControlName="funcao" class="form-control form-select" id="funcao">
+                  <option value="" selected>Selecione sua função</option>
+                  <option *ngFor="let tecnico of tecnicos" [value]="tecnico.id">
+                    {{tecnico.funcao}}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+
+                <select formControlName="estado" class="form-control" name="estado" id="estado"
+                        (change)="selectEstadoOnChange($event)">
+                  <option value="" disabled selected>Selecione seu estado</option>
+                  <option *ngFor="let estado of estados" [value]="estado.sigla">
+                    {{estado.nome}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+
+                <select formControlName="instituicao" class="form-control" name="instituicao" id="instituicao"
+                        (change)="selectInstituicaOnChange($event)">
+                  <option value="" selected>Selecione sua instituição</option>
+                  <option *ngFor="let instituicao of instituicoes" [value]="instituicao.id">
+                    {{instituicao.nome}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div class="form-group">
-            <input type="submit" class="btnSubmit" value="Cadastrar" />
+            <select formControlName="unidade" class="form-control" name="unidade" id="unidade">
+              <option value="" selected>Selecione sua unidade</option>
+              <option *ngFor="let unidade of unidades" [value]="unidade.id">
+                {{unidade.nome}}
+              </option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="senha">Digite sua senha:</label>
+                <input type="password" id="senha" formControlName="senha" class="form-control"/>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="senhaConfirm">Insira a senha novamente:</label>
+                <input type="password" id="senhaConfirm" formControlName="senhaConfirm" class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btnSubmit" value="Cadastrar" (click)="realizarCadastro()"/>
           </div>
           <div class="form-group">
             <a routerLink="../entrar" class="ForgetPwd" value="Login">Já é cadastrado? Faça login</a>
           </div>
+
         </form>
       </div>
     </div>

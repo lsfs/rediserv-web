@@ -1,0 +1,120 @@
+<app-shared-home>
+  <app-navbar></app-navbar>
+  <div class="container">
+
+    <div class="row mt-4 mb-3">
+      <div class="col">
+        <h3 class="mt-4">Propostas submetidas</h3>
+      </div>
+      <div class="col text-right">
+
+        <a class="btn btn-dark border-0 px-3 py-2 bg-indigo mt-3 dropdown-toggle sombra" data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false">
+          Visualizar minhas propostas</a>
+        <div class="dropdown-menu" aria-labelledby="triggerId1">
+          <a class="dropdown-item" href="#" routerLink="../rascunhos">
+            Meus rascunhos</a>
+          <a class="dropdown-item" href="#" routerLink="../candidatadas"> Propostas que demonstrei interesse</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="propostas.length > 0">
+      <div class="col-12 pt-3">
+        <div class="table-responsive">
+          <table class="tabela-especial table table-striped align-middle text-left">
+            <tbody>
+            <tr *ngFor="let proposta of propostas">
+
+
+              <td class="text-left">
+                <h6>Proposta submetida em {{proposta.dataProposta}}</h6>
+
+                <span class="d-block mt-2">Destinos adicionados:</span>
+                <ul class="py-2 lista-unidades">
+                  <li class="d-block"><span class="unidade-tag bg-secondary sombra"
+                                            *ngFor="let unidade of toArray(proposta.unidadePropostaGetDTOS)">
+                                       {{unidade.sigla}}
+                    - {{unidade.nome}}</span></li>
+                </ul>
+                <br>
+
+                <a class="text-danger btn" (click)="apagarSubmetida(proposta)">Excluir proposta</a>
+
+              </td>
+              <td>
+
+                <div class="float-right">
+                  <span class="circulo bg-indigo">{{proposta.numeroCandidatos}}</span> candidato
+
+                  <button href="" *ngIf="proposta.numeroCandidatos > 0" [routerLink]="['./']" class="btn bg-indigo sombra text-light
+                        cursor-pointer py-1 px-2 ml-2" data-toggle-second="tooltip" data-placement="left"
+                          title="Mais detalhes"
+                          (click)="exibeDetalhes(proposta, detalheProposta)">
+                    <fa-icon [icon]="info"></fa-icon>
+                  </button>
+
+
+                </div>
+
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="row" *ngIf="propostas.length == 0">
+      <div class="col mt-5">
+        <span>
+          Não há propostas salvas.
+        </span>
+
+        <a routerLink="/home/propostas/nova"
+           class="fg-indigo">
+          Criar uma nova proposta de redistribuição </a>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <ng-template #detalheProposta>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Candidatos da proposta</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col">
+          <ul *ngFor="let candidato of this.candidatos" class="lista-candidatos">
+
+            <li class="nome-candidato">
+              {{candidato.nome}}</li>
+            <li>
+              <fa-icon class="mr-1" [icon]="mapMarker"></fa-icon>
+              {{candidato.localizacao}}</li>
+            <li>
+              <fa-icon class="mr-1" [icon]="user"></fa-icon>
+              {{candidato.cargo.descricao}} - <span *ngIf="candidato.cargo.descricao=='Técnico'"> {{candidato.cargo.funcao}} </span>
+              <span *ngIf="candidato.cargo.descricao=='Professor'"> {{candidato.cargo.area}} </span></li>
+            <li>
+              <fa-icon class="mr-1" [icon]="envelope"></fa-icon>
+              {{candidato.email}}</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </ng-template>
+
+
+</app-shared-home>

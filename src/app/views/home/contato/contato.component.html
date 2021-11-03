@@ -1,0 +1,89 @@
+<app-shared-home>
+  <app-navbar></app-navbar>
+  <div class="container">
+
+    <div class="row mt-4 mb-3">
+      <div class="col">
+        <h3 class="mt-3">Entre em contato</h3>
+        <p>Possui alguma dúvida sobre o sistema? Ou ainda alguma sugestão de melhoria ou crítica?
+          Envie sua mensagem através do formulário abaixo.</p>
+      </div>
+      <div class="col text-right">
+
+        <a class="btn btn-dark border-0 px-3 py-2 bg-indigo mt-3 sombra" routerLink="../dashboard">
+          Ir para sua dashboard</a>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col">
+        <div class="card sombra  px-2">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6 py-3">
+                <h6>Fale conosco</h6>
+              </div>
+              <div class="col-12">
+                <div *ngIf="haErros" class="alert alert-danger alert-dismissible mt-3 w-75 p-1 fade show text-center"
+                     role="alert">
+                  {{mensagemConteudo}}
+                  <button type="button" class="close p-1" (click)="resetaMensagens()" data-dismiss="alert"
+                          aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+
+                <div *ngIf="haSucesso" class="alert alert-success alert-dismissible mt-3 w-75 p-1 fade show text-center"
+                     role="alert">
+                  {{mensagemConteudo}}
+                  <button type="button" class="close p-1" (click)="resetaMensagens()" data-dismiss="alert"
+                          aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <form [formGroup]="formMensagem">
+              <div class="form-group row">
+                <label for="categoriaMensagem" class="col-sm-2 col-form-label">Assunto</label>
+                <div class="col-sm-4">
+                  <select formControlName="categoriaMensagem" class="form-control" name="categoriaMensagem"
+                          id="categoriaMensagem" required>
+                    <option value="0">Selecione o assunto da mensagem</option>
+                    <option *ngFor="let categoria of categoriaMensagem" value="{{categoria.value}}">
+                      {{categoria.display}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-2">Mensagem</div>
+                <div class="col-sm-6">
+                  <textarea formControlName="conteudoMensagem" name="conteudoMensagem"
+                            class="form-control" id="" rows="10" required placeholder="Insira sua mensagem"></textarea>
+                </div>
+              </div>
+              <div class="form-group row mt-4">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn bg-indigo text-light sombra"
+                          [disabled]="formMensagem.invalid"
+                          (click)="enviarMensagem()">Enviar mensagem
+                  </button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</app-shared-home>

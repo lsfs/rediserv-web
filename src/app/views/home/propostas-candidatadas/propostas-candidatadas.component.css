@@ -1,0 +1,12 @@
+.features {
+  list-style-type: none;
+}
+
+.features li {
+  margin: 10px -10px;
+}
+
+.features ul li {
+  display: inline;
+  margin-top: 10px;
+}

@@ -1,5 +1,6 @@
+
 .bg-indigo{
-    background-color: #303F9F;
+  background-color: #303F9F;
 }
 
 .str1 {
@@ -28,16 +29,11 @@
 }
 
 #svg-map a:hover path {
-    fill: #28a745 !important
-}
-
-.titulo-dados-proposta{
-    color:#303F9F;
-    font-weight: 500;
+    fill: #009688 !important
 }
 
 .lugarSelecionado{
-    fill: #28a745 !important
+    fill: #009688 !important
 }
 .cursor-pointer{
   cursor: pointer;

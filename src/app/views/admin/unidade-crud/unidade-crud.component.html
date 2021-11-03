@@ -1,0 +1,134 @@
+<app-shared-admin>
+
+  <div class="container">
+    <div class="row">
+      <div class="col border-bottom">
+        <h2>Unidade</h2>
+      </div>
+    </div>
+    <div class="row mb-4 mt-3">
+      <div class="col-12">
+
+        <div *ngIf="haErros" class="alert alert-danger alert-dismissible mt-3 w-50 p-1 fade show text-center"
+             role="alert">
+          {{mensagemConteudo}}
+          <button type="button" class="close p-1" (click)="resetaMensagens()" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div *ngIf="haSucesso" class="alert alert-success alert-dismissible mt-3 w-50 p-1 fade show text-center"
+             role="alert">
+          {{mensagemConteudo}}
+          <button type="button" class="close p-1" (click)="resetaMensagens()" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="col">
+        <h5 *ngIf="!modoEdicao;else emEdicao">Inserir novo registro</h5>
+        <ng-template #emEdicao>
+          <h5>Editar registro</h5>
+        </ng-template>
+        <form [formGroup]="formUnidade">
+          <div class="mt-4 mb-3 row">
+
+            <div class="form-group col-6">
+              <label for="nomeUnidade" class="form-label">Nome</label>
+              <input type="text" class="form-control" formControlName="nomeUnidade"
+                     id="nomeUnidade" aria-describedby="nomeUnidade">
+            </div>
+
+            <div class="form-group col-6">
+              <label for="endereco" class="form-label">Endereço</label>
+              <input type="text" class="form-control" formControlName="endereco"
+                     id="endereco" aria-describedby="endereco">
+            </div>
+
+            <div class="form-group col-6">
+              <label for="instituicao" class="form-label">Instituição</label>
+              <select formControlName="instituicao" class="form-control form-select" name="instituicao" id="instituicao"
+                      (change)="selectInstituicaoOnChange($event)" required>
+
+                <option *ngFor="let instituicao of instituicoes" [value]="instituicao.id">
+                  {{instituicao.nome}}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group col-6">
+              <label for="cidade" class="form-label">Cidade</label>
+              <select formControlName="cidade" class="form-control form-select" name="cidade" id="cidade"
+                      required>
+
+                <option *ngFor="let cidade of cidades" [value]="cidade.id">
+                  {{cidade.nome}}
+                </option>
+              </select>
+            </div>
+
+
+            <div class="form-group col-6">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input type="text" class="form-control" formControlName="telefone"
+                     id="telefone" aria-describedby="telefone">
+            </div>
+
+
+          </div>
+          <button type="submit" class="btn btn-dark" (click)="salvar()">Salvar</button>
+          <button *ngIf="modoEdicao" type="submit" class="btn btn-warning ml-3"
+                  (click)="encerraEdicao()">Cancelar
+          </button>
+        </form>
+
+      </div>
+
+
+    </div>
+    <div class="row border-top">
+      <div class="col pt-4">
+        <h4>Registros cadastrados</h4>
+
+      </div>
+      <div class="col-12 pt-4">
+        <table class="table tabela-especial table-striped align-middle">
+          <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Instituição</th>
+            <th>Cidade</th>
+            <th>Ações</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let unidade of unidades  | paginate: { id: 'foo',
+                                                      itemsPerPage: 5,
+                                                      currentPage: paginaAtual,
+                                                      totalItems: totalRegistros }">
+            <td>{{unidade.nome}}</td>
+            <td>{{unidade.instituicao.nome}}</td>
+            <td>{{unidade.nomeCidade}}</td>
+
+            <td>
+              <button class="btn btn-info p-1 mr-2" (click)="entrarEdicao(unidade)">
+                Editar
+              </button>
+              <button class="btn btn-danger p-1" (click)="apagar(unidade)">
+                Excluir
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-controls id="foo" (pageChange)="pageChanged($event)"
+                             maxSize="10" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+
+
+      </div>
+    </div>
+  </div>
+
+</app-shared-admin>

@@ -1,7 +1,11 @@
-import { Area } from "./area.model";
+import {Nivel} from './nivel.model';
 
 export type Cargo = {
-    id: number,
-    nome: String,
-    area: Area
-}
+  id?: number,
+  nome?: string,
+  area?: string
+  funcao?: string,
+  nivel?: Nivel,
+  descricao?: string
+
+};

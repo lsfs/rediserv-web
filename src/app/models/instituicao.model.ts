@@ -1,10 +1,11 @@
-import { Estado } from "./estado.model";
+import { Estado } from './estado.model';
 
 export type Instituicao = {
 
-    id : number;
+    id: number;
     nome: string;
     sigla: string;
-    estado : Estado;
+    endereco: string;
+    estado: Estado;
 
-}
+};

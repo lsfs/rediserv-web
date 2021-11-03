@@ -1,0 +1,88 @@
+<app-shared-home>
+  <app-navbar></app-navbar>
+  <div class="container">
+
+    <div class="row mt-4 mb-3">
+      <div class="col">
+        <h3 class="mt-4">Propostas salvas como rascunho</h3>
+      </div>
+      <div class="col text-right">
+
+        <a class="btn btn-dark border-0 px-3 py-2 bg-indigo mt-3 dropdown-toggle sombra" data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false">
+          Visualizar minhas propostas</a>
+        <div class="dropdown-menu" aria-labelledby="triggerId1">
+          <a class="dropdown-item" href="#" routerLink="../submetidas"> Minhas propostas submetidas</a>
+          <a class="dropdown-item" href="#" routerLink="../candidatadas"> Propostas que demonstrei interesse</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="propostas.length > 0">
+      <div class="col-12 pt-3">
+        <div class="table-responsive">
+          <table class="tabela-especial table table-striped align-middle text-left">
+            <tbody>
+            <tr *ngFor="let proposta of propostas">
+
+
+              <td class="text-left">Proposta criada em {{proposta.dataProposta}}.
+                <span class="d-block mt-2">Destinos adicionados:</span>
+                <ul class="py-2 lista-unidades">
+                  <li class="d-block"><span class="unidade-tag bg-secondary sombra"
+                                            *ngFor="let unidade of toArray(proposta.unidadePropostaGetDTOS)">
+                                       {{unidade.sigla}}
+                    - {{unidade.nome}}</span></li>
+                </ul>
+              </td>
+              <td>
+                <div class="float-right">
+
+                  <button class="btn text-light sombra border-0 p-2 bg-verde mt-3"
+                          (click)="submeterProposta(proposta.id)">
+                    <fa-icon [icon]="share" class="mr-1"></fa-icon>
+                    Submeter proposta
+                  </button>
+
+                  <button class="btn text-light sombra border-0 p-2 bg-secondary mt-3 ml-3"
+                          (click)="enviarPropostaEdicao(proposta.id)">
+                    <fa-icon [icon]="faEdit" class="mr-1"></fa-icon>
+                    Editar
+                  </button>
+
+                  <button class="btn text-light sombra border-0 p-2 bg-lilas mt-3 ml-3"
+                          (click)="apagarRascunho(proposta)">
+                    <fa-icon [icon]="faTrash" class="mr-1"></fa-icon>
+                    Apagar
+                  </button>
+
+                </div>
+
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="row" *ngIf="propostas.length == 0">
+      <div class="col mt-5">
+        <span>
+          Não há propostas salvas.
+        </span>
+
+        <a routerLink="../nova"
+           class="fg-indigo">
+          Criar uma nova proposta de redistribuição </a>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</app-shared-home>

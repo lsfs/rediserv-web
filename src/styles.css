@@ -1,4 +1,246 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f9f9f9;
+}
+
+.tabela-especial {
+  border-spacing: 0 20px;
+  border-collapse: separate;
+}
+
+.tabela-especial td, .table th {
+  padding: 1.5rem;
+}
+
+.tabela-especial thead tr th,
+.tabela-especial thead tr td,
+.tabela-especial tbody tr th,
+.tabela-especial tbody tr td {
+  vertical-align: middle;
+  border: none;
+}
+
+.tabela-especial thead tr th,
+.tabela-especial thead tr td,
+.tabela-especial tbody tr th,
+.tabela-especial tbody tr td {
+  text-align: center;
+}
+
+.tabela-especial tbody tr, .sombra, .ngx-pagination .current {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+
+.tabela-especial tbody tr td {
+  background: #fff;
+  text-align: center;
+}
+
+.tabela-especial tbody tr td:nth-child(1) {
+  border-radius: 5px 0 0 5px;
+}
+
+.tabela-especial tbody tr td:nth-last-child(1) {
+  border-radius: 0 5px 5px 0;
+}
+
+.bg-escuro {
+  background-color: #191919;
+}
+
+.bg-indigo {
+  background-color: #303F9F;
+}
+
+.bg-verde {
+  background-color: #0b9772;
+}
+
+.bg-lilas {
+  background-color: #e03f60;
+}
+
+.bg-amarelo {
+  background-color: #E6AF2E;
+
+}
+
+.bg-branco {
+  background-color: #ffffff;
+}
+
+.btn-default {
+
+  background-color: #68889E;
+
+  color: #FFF;
+
+  border-color: #2F3E48;
+
+}
+
+.fg-indigo {
+  color: #303F9F;
+}
+
+.fg-verde {
+  color: #3C896D;
+}
+
+
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+  background-color: #2F3E48;
+  color: #FFF;
+
+  border-color: #31347B;
+
+}
+
+.dropdown-item:active, .bg-indigo:active{
+  background-color: #303F9F!important;
+}
+
+
+
+.btn:hover, .btn-default:hover {
+  color:#ffffff!important;
+}
+
+.ngx-pagination .current {
+  background-color: #303F9F!important;
+  border-radius: 5px;
+}
+
+.modal-content {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px!important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+
+}
+
+.modal-dialog {
+  max-width: 800px!important;
+  margin-top:5%;
+}
+
+.modal-body {
+  padding: 20px 0;
+}
+
+.modal-body .lista-detalhe-proposta {
+  padding: 0;
+}
+
+.modal-body .lista-detalhe-proposta li {
+  list-style-type: none;
+  margin-bottom:8px!important;
+}
+
+.lista-unidades{
+  padding:5px 0 10px 10px;
+}
+
+.lista-unidades li{
+  float:left;
+
+}
+
+.lista-unidades li span{
+  margin-top:1px;
+  display: inline-block;
+}
+
+
+.circulo {
+  padding: 5px 9px;
+  border-radius: 50%;
+  text-align: center;
+  color:#fff;
+}
+
+
+.unidade-tag {
+  border-radius: 2px;
+  padding:4px 6px;
+  color:white;
+  margin: 5px 5px;
+}
+
+
+.tabela-overflow thead, .tabela-overflow tbody {
+  display: block!important;
+
+}
+.tabela-overflow tbody{
+  overflow-y: scroll!important;
+  height: 200px!important;
+}
+
+.tabela-overflow th,
+.tabela-overflow td {
+  padding: 5px;
+  width:10%;
+  text-align: center;
+}
+
+table .tabela-overflow{
+  width: 100%; /* Optional */
+}
+
+
+.card {
+  border: 0!important;
+}
+
+.lista-candidatos li{
+  list-style-type: none;
+  margin: 3px 0;
+  font-size:15px;
+}
+
+.lista-candidatos .nome-candidato {
+  font-size: 18px;
+  font-style: normal;
+}
+
+pagination-controls {
+  margin: 20px auto;
+}
+
+.ng-autocomplete {
+  width: auto !important;
+  display: block;
+}
+
+.card-text ul.features, .features li {
+  padding: 0;
+}
+.features li {
+  margin: 10px 0;
+}
+
+.features ul li {
+  display: inline;
+  margin-top: 10px;
+}
+
+.card-text ul li {
+  list-style-type: none;
+}
+
+.titulo-dados-proposta, .desc-dados{
+  color:#303F9F;
+  font-weight: 500;
+}

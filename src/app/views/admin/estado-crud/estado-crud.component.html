@@ -1,0 +1,111 @@
+<app-shared-admin>
+
+  <div class="container">
+    <div class="row">
+      <div class="col border-bottom">
+        <h2>Estado</h2>
+      </div>
+    </div>
+    <div class="row mb-4 mt-3">
+      <div class="col-12">
+
+        <div *ngIf="haErros" class="alert alert-danger alert-dismissible mt-3 w-50 p-1 fade show text-center"
+             role="alert">
+          {{mensagemConteudo}}
+          <button type="button" class="close p-1" (click)="resetaMensagens()" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div *ngIf="haSucesso" class="alert alert-success alert-dismissible mt-3 w-50 p-1 fade show text-center"
+             role="alert">
+          {{mensagemConteudo}}
+          <button type="button" class="close p-1" (click)="resetaMensagens()" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="col">
+        <h5 *ngIf="!modoEdicao;else emEdicao">Inserir novo registro</h5>
+        <ng-template #emEdicao>
+          <h5>Editar registro</h5>
+        </ng-template>
+        <form [formGroup]="formEstado">
+          <div class="mt-4 mb-3 row">
+            <div class="form-group col-6">
+              <label for="nomeEstado" class="form-label">Nome</label>
+              <input type="text" class="form-control" formControlName="nomeEstado"
+                     id="nomeEstado" aria-describedby="nomeEstado">
+            </div>
+
+            <div class="form-group col-6">
+              <label for="sigla" class="form-label">Sigla</label>
+              <input type="text" class="form-control" formControlName="sigla"
+                     id="sigla" aria-describedby="sigla">
+            </div>
+
+            <div class="form-group col-6">
+              <label for="regiao" class="form-label">Região</label>
+              <input type="text" class="form-control" formControlName="regiao"
+                     id="regiao" aria-describedby="regiao">
+            </div>
+
+
+          </div>
+          <button type="submit" class="btn btn-dark" (click)="salvar()">Salvar</button>
+          <button *ngIf="modoEdicao" type="submit" class="btn btn-warning ml-3"
+                  (click)="encerraEdicao()">Cancelar
+          </button>
+        </form>
+
+      </div>
+
+
+    </div>
+    <div class="row border-top">
+      <div class="col pt-4">
+        <h4>Registros cadastrados</h4>
+
+      </div>
+      <div class="col-12 pt-4">
+        <table class="table tabela-especial table-striped align-middle">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sigla</th>
+            <th>Região</th>
+            <th>Ações</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let estado of estados  | paginate: { id: 'foo',
+                                                      itemsPerPage: 5,
+                                                      currentPage: paginaAtual,
+                                                      totalItems: totalRegistros }">
+            <td>{{estado.id}}</td>
+            <td>{{estado.nome}}</td>
+            <td>{{estado.sigla}}</td>
+            <td>{{estado.regiao}}</td>
+            <td>
+              <button class="btn btn-info p-1 mr-2" (click)="entrarEdicao(estado)">
+                Editar
+              </button>
+              <button class="btn btn-danger p-1" (click)="apagar(estado)">
+                Excluir
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <pagination-controls id="foo" (pageChange)="pageChanged($event)"
+                             maxSize="10" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+
+
+      </div>
+    </div>
+  </div>
+
+</app-shared-admin>

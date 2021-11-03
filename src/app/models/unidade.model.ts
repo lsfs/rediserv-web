@@ -1,5 +1,5 @@
-import { Cidade } from "./cidade.model";
-import { Instituicao } from "./instituicao.model";
+import { Cidade } from './cidade.model';
+import { Instituicao } from './instituicao.model';
 
 export type Unidade = {
 
@@ -9,4 +9,4 @@ export type Unidade = {
     instituicao: Instituicao;
     cidade: Cidade;
     telefone: string;
-}
+};

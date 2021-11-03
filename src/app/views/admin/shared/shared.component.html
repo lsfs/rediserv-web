@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-indigo static-top py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/admin/cidade">Rediserv - Admin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="" routerLink="../cidade" routerLinkActive="active">Cidades</a></li>
+          <li class="nav-item"><a class="nav-link" id="item-estado" href="" routerLink="../estado" routerLinkActive="active">Estados</a></li>
+          <li class="nav-item"><a class="nav-link" href="" routerLink="../instituicao" routerLinkActive="active">Instituições</a></li>
+<!--          <li class="nav-item"><a class="nav-link" href="" routerLink="../instituicao" routerLinkActive="active">Professores</a></li>-->
+<!--          <li class="nav-item"><a class="nav-link" href="#!" routerLinkActive="active">Propostas</a></li>-->
+<!--          <li class="nav-item"><a class="nav-link" href="" routerLink="../instituicao" routerLinkActive="active">Técnicos</a></li>-->
+          <li class="nav-item"><a class="nav-link" href="" routerLink="../unidade" routerLinkActive="active">Unidades</a></li>
+<!--          <li class="nav-item"><a class="nav-link" href="#!" routerLinkActive="active">Usuários</a></li>-->
+          <li class="nav-item"><a class="nav-link" href="#!" routerLinkActive="active">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="row">
+    <main class="col ms-sm-auto col-lg-12">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+
+        <!-- ==================== CONTEUDO  ===================   -->
+
+        <ng-content></ng-content>
+
+        <!-- ===================== CONTEUDO ==================== .-->
+
+      </div>
+    </main>
+  </div>
+</div>
+

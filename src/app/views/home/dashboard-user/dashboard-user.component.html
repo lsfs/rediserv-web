@@ -1,0 +1,162 @@
+<app-shared-home>
+  <app-navbar></app-navbar>
+  <div class="container">
+
+    <div class="row mt-4 mb-1">
+      <div class="col">
+        <h3 class="mt-4">Olá, {{nomeUsuario}}!</h3>
+      </div>
+
+      <div class="col text-right">
+        <button class="btn text-light sombra border-0 p-2 bg-indigo mt-3" routerLink="../propostas">
+          <fa-icon [icon]="faSearch" class="mr-1"></fa-icon>
+          Visualizar propostas públicas
+        </button>
+
+        <button class="btn text-light sombra border-0 p-2 bg-verde mt-3 ml-3" routerLink="../propostas/nova">
+          <fa-icon [icon]="faPlus" class="mr-1"></fa-icon>
+          Criar uma nova
+          proposta
+        </button>
+      </div>
+    </div>
+
+
+    <div class="my-5 p-3 bg-body quadro">
+      <h5 class="border-bottom pb-2 mb-0">Última proposta submetida</h5>
+
+      <div *ngIf="ultimaPropostaSubmetida">
+        <div class="d-flex pt-3 row">
+          <div class="col-6">
+            <h6 class="d-block pb-3 mb-0 lh-sm">Proposta submetida
+              em {{ultimaPropostaSubmetida.dataProposta}} </h6>
+            Destinos adicionados:
+            <ul class="lista-unidades">
+              <li class="mr-2 d-block"><span class="unidade-tag bg-verde sombra"
+                                             *ngFor="let unidade of toArray(ultimaPropostaSubmetida.unidadePropostaGetDTOS)">
+                                       {{unidade.sigla}}
+                - {{unidade.nome}}</span></li>
+            </ul>
+
+          </div>
+
+          <!--  COLUNA BOTOES  -->
+          <div class="col-6 text-right">
+            <div>
+              <span class="circulo bg-indigo">{{ultimaPropostaSubmetida.numeroCandidatos}}</span> candidato
+
+            </div>
+            <!--            <div *ngIf="numeroCandidatos==1">-->
+            <!--              <span class="circulo bg-indigo">{{numeroCandidatos}}</span> correspondencia-->
+            <!--            </div>-->
+
+            <!--            <div *ngIf="numeroCandidatos!=1">-->
+            <!--              <span class="circulo bg-indigo">{{numeroCandidatos}}</span> candidatos-->
+            <!--              <span class="circulo bg-indigo ml-2">{{numeroCandidatos}}</span> correspondencia-->
+            <!--            </div>-->
+
+          </div>
+
+          <!-- fim coluna botoes -->
+        </div>
+        <div class="row">
+          <div class="col mt-3">
+            <a class="fg-indigo" routerLink="../propostas/submetidas">Ver todas suas propostas submetidas</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="!ultimaPropostaSubmetida">
+        <div class="d-flex pt-3">
+          Você ainda não submeteu propostas.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row my-5">
+      <div class="col-6">
+        <div class="col-12 quadro p-3">
+
+          <h5 class="border-bottom pb-2 mb-0">Última proposta salva como rascunho</h5>
+
+          <div *ngIf="ultimaPropostaCriada">
+            <div class="d-flex pt-3 row">
+              <div class="col">
+                <h6 class="d-block pb-3 mb-0 lh-sm">Proposta criada
+                  em {{ultimaPropostaCriada.dataProposta}} </h6>
+                Destinos adicionados:
+                <ul class="lista-unidades">
+                  <li class="mr-2 d-block"><span class="unidade-tag bg-verde sombra"
+                                                 *ngFor="let unidade of toArray(ultimaPropostaCriada.unidadePropostaGetDTOS)">
+                                       {{unidade.sigla}}
+                    - {{unidade.nome}}</span></li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col mt-3">
+                <a class="fg-indigo" routerLink="../propostas/rascunhos">Ver todas suas propostas salvas como
+                  rascunho</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="!ultimaPropostaCriada">
+            <div class="d-flex pt-3">
+              Você ainda não salvou propostas para depois.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="col-12 quadro p-3">
+          <h5 class="border-bottom pb-2 mb-0">Última proposta candidatada</h5>
+          <div *ngIf="ultimaPropostaCandidatada">
+            <div class="d-flex pt-3 row">
+              <div class="col">
+                <h6 class="d-block pb-3 mb-0 lh-sm">Proposta criada
+                  em {{ultimaPropostaCandidatada.dataProposta}} por {{ultimaPropostaCandidatada.autor.nome}} </h6>
+                Destinos adicionados:
+                <ul class="lista-unidades">
+                  <li class="mr-2 d-block"><span class="unidade-tag bg-verde sombra"
+                                                 *ngFor="let unidade of toArray(ultimaPropostaCandidatada.unidadePropostaGetDTOS)">
+                                       {{unidade.sigla}}
+                    - {{unidade.nome}}</span></li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col mt-3">
+                <a class="fg-indigo" routerLink="../propostas/candidatadas">Ver todas as propostas que eu me
+                  candidatei</a>
+              </div>
+            </div>
+
+          </div>
+          <div *ngIf="!ultimaPropostaCandidatada">
+            <div class="d-flex pt-3">
+              Você ainda não se candidatou a nenhuma proposta.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+</app-shared-home>
+

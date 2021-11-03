@@ -1,8 +1,8 @@
 export type InstituicaoSaveDTO = {
-
-    id : number;
+    id?: number;
     nome: string;
     sigla: string;
-    idestado : number;
+    endereco: string;
+    estado: number;
 
-}
+};
