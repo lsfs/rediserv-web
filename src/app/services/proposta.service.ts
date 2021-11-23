@@ -36,7 +36,7 @@ export class PropostaService {
 
 
   public listarPropostasPublicas(cargo: string, page: number): Observable<any> {
-    return this.http.get<any>(`${this.api}/filtro?size=8&page=${page - 1}&cargo${cargo}&situacaoProposta=SUBMETIDA`);
+    return this.http.get<any>(`${this.api}/filtro?size=8&page=${page - 1}&cargo=${cargo}&situacaoProposta=SUBMETIDA`);
   }
 
 
@@ -56,7 +56,7 @@ export class PropostaService {
 
 
     return this.http.get<any>
-    (`${this.api}/filtro?size=8&page=${paginaAtual - 1}${queryEstado}${queryInstituicao}
+    (`${this.api}/filtro?size=8&page=${paginaAtual - 1}${queryEstado}${queryInstituicao}&cargo=${cargo}
     &situacaoProposta=${situacaoProposta}`);
   }
 

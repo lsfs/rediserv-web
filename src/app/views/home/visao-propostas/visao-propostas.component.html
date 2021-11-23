@@ -4,7 +4,7 @@
 
     <div class="row mt-4 mb-1">
       <div class="col">
-        <h3 class="mt-3">Propostas de redistribuição</h3>
+        <h3 class="mt-3">Propostas de Movimentação</h3>
         <p>Navegue pelas propostas submetidas pelos usuários.</p>
       </div>
       <div class="col text-right">
@@ -89,13 +89,21 @@
         </form>
       </div>
       <div class="col-12" *ngIf="this.filtroAplicado">
+
         <button class="btn text-light bg-lilas" (click)="removerFiltro()"> Remover filtro</button>
+        <br>
+        <h6 *ngIf="totalRegistros == 1" class="mt-4">
+          Foi encontrado {{totalRegistros}} registro.
+        </h6>
+
+        <h6 *ngIf="totalRegistros > 1" class="d-block mt-4">
+          Foram encontrados {{totalRegistros}} registros
+        </h6>
 
       </div>
     </div>
 
     <div class="row pt-3">
-
 
 
       <div class="col-12 col-md-6" *ngFor="let proposta of propostas | paginate: { id: 'foo',
@@ -163,10 +171,12 @@
     <div class="row mt-2">
       <pagination-controls *ngIf="this.propostas.length > 0" id="foo" class="align-content-center" (pageChange)="pageChanged($event)"
                            maxSize="10" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
-      <div class="col" *ngIf="this.propostas.length == 0">
+      <div class="col" *ngIf="this.propostas.length == 0 && listaVazia">
+
         <div class="alert alert-danger alert-dismissible">
-          Não há propostas para exibir.
+          Não há propostas
         </div>
+
       </div>
 
     </div>
@@ -185,9 +195,15 @@
         <div class="col-4 text-center">
           <fa-icon [icon]="usuario" style="font-size: 80px;"></fa-icon>
           <h5>{{propostaDetalhada.autor.nome}}</h5>
-          <span class="d-block px-1">
-            {{propostaDetalhada.autor.cargo.nome}}
+          <span *ngIf="propostaDetalhada.autor.cargo.descricao == 'Técnico'" class="d-block px-1">
+            {{propostaDetalhada.autor.cargo.descricao}} -  {{propostaDetalhada.autor.cargo.funcao}}
           </span>
+
+          <span *ngIf="propostaDetalhada.autor.cargo.descricao == 'Professor'" class="d-block px-1">
+            {{propostaDetalhada.autor.cargo.descricao}} -  {{propostaDetalhada.autor.cargo.area}}
+          </span>
+
+
           <span class="d-block">
              Data: {{propostaDetalhada.dataProposta}}
           </span>

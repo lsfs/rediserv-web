@@ -81,6 +81,8 @@ export class VisaoPropostasComponent implements OnInit {
   msgFiltroInstituicao: string;
   filtroAplicado: boolean = false;
 
+  listaVazia: boolean = false;
+
 
   constructor(private autenticacaoService: AutenticacaoService,
               private modalService: BsModalService,
@@ -100,7 +102,9 @@ export class VisaoPropostasComponent implements OnInit {
     this.getEstados();
     this.getInstituicoes();
     this.buscaPropostasCandidatadas();
-    this.getPropostasPaginadas(this.cargoPessoa, this.paginaAtual);
+
+
+    console.log(this.cargoPessoa);
 
     this.msgFiltroInstituicao = 'Selecione um estado antes';
 
@@ -156,6 +160,12 @@ export class VisaoPropostasComponent implements OnInit {
         this.propostas = propostasPaginadas.content;
         this.paginas = new Array(propostasPaginadas.totalPages);
         this.totalRegistros = propostasPaginadas.totalElements;
+
+        if (this.totalRegistros === 0 ){
+          this.listaVazia = true;
+        }
+
+
       }
     );
   }
@@ -190,6 +200,11 @@ export class VisaoPropostasComponent implements OnInit {
         this.paginas = new Array(propostasFiltradas.totalPages);
         this.totalRegistros = propostasFiltradas.totalElements;
         this.filtroAplicado = true;
+
+        if (this.totalRegistros === 0 ){
+          this.listaVazia = true;
+        }
+
       }
     );
   }
@@ -205,6 +220,8 @@ export class VisaoPropostasComponent implements OnInit {
 
         this.pessoaGetDto = res;
         this.cargoPessoa = this.pessoaGetDto.cargo.descricao;
+
+        this.getPropostasPaginadas(this.cargoPessoa, this.paginaAtual);
 
 
       }
@@ -369,6 +386,21 @@ export class VisaoPropostasComponent implements OnInit {
     this.estadoControl.reset();
     this.instituicaoControl.reset();
     this.filtroAplicado = false;
+
+    this.estadosFiltrados = this.estadoControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => typeof value === 'string' ? value : value.nome),
+        map(nome => nome ? this._filterEstado(nome) : this.estados.slice())
+      );
+
+    this.instituicoesFiltradas = this.instituicaoControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => typeof value === 'string' ? value : value.nome),
+        map(nome => nome ? this._filterInstituicao(nome) : this.instituicoes.slice())
+      );
+
     this.getPropostasPaginadas(this.cargoPessoa, 1);
     }
 

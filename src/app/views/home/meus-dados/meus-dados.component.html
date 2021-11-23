@@ -76,6 +76,7 @@
 
   </div>
 
+
   <ng-template #editarDados>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Editar seus dados</h4>
@@ -112,7 +113,8 @@
                             id="cargo">
                       <option value="" selected>Selecione seu cargo</option>
                       <option *ngFor="let cargo of cargos" [value]="cargo.id">
-                        {{cargo.id}}
+                       <span *ngIf="cargo.descricao=='Professor'"> {{ cargo.descricao}} - {{cargo.area}}</span>
+                        <span *ngIf="cargo.descricao=='Técnico'"> {{ cargo.funcao}}</span>
                       </option>
                     </select>
                   </div>
@@ -188,6 +190,8 @@
     </div>
 
   </ng-template>
+
+
 
   <ng-template #trocarSenha>
 
