@@ -565,7 +565,7 @@
                         <table class="table table-striped">
                           <tbody>
                           <tr *ngFor="let proposta of destinosProposta">
-                            <td> {{proposta.instituicao.nome}}</td>
+                            <td> {{proposta.instituicao.sigla}}</td>
                             <td> {{proposta.unidade.nome}}</td>
                             <td>
                               <a class="cursor-pointer" (click)="removerDaLista(destinosProposta.indexOf(proposta))">

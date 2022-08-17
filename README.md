@@ -1,28 +1,12 @@
-# RediservFrontend
+# Rediserv
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
+## Rediserv-web - v1.0
 
-## Development server
+Este repositório apresenta o código-fonte do frontend do Rediserv, um serviço que visa auxiliar servidores da rede federal de ensino a realizarem o processo de redistribuição através da aproximação voluntária.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Este projeto é fruto do trabalho de conclusão de curso do aluno **Luís Fernando Vieira Sampaio**, graduando em Engenharia da Computação pelo IFMT, sob orientaçao do professor **Giuliano Robledo Zucoloto Moreira**.
 
-## Code scaffolding
+O sistema permite que o usuário cadastre-se e submeta propostas de movimentação, informando seus dados profissionais, como cargo e área, bem como sua localização atual e para onde deseja ir. É possível também visualizar, buscar e demonstrar interesse por propostas públicas submetidas.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# rediserv-web
+Rediserv-web © 2022 por Giuliano Robledo e Luís Fernando Sampaio é licenciado na CC BY-NC-SA 4.0. Para ver uma cópia dessa licença visite http://creativecommons.org/licenses/by-nc-sa/4.0/

@@ -10,6 +10,4 @@ export type Pessoa = {
     cargo: Cargo;
     unidade: Unidade;
 
-
-
 };
